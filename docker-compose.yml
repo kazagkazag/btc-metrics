@@ -1,0 +1,12 @@
+version: '3.4'
+volumes:
+    documents:
+services:
+    btc-metrics:
+        image: btc-metrics:latest
+        ports:
+            - 8080:5000
+        environment:
+            CRYPTO_CURRENCY: "BTC"
+            CURRENCY: "PLN"
+            INTERVAL: "10000"

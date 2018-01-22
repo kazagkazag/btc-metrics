@@ -22,8 +22,23 @@ Application is ready to use as docker container. You can simply use `./build_and
 docker image and run container on port 8080 (see `localhost:8080/metrics`).
 
 You can also deploy application as part of the docker swarm using example service definition
-from `docker-compose.yml`. Just build docker image (see `./build_and_run_docker.sh` for more
-details) and run `docker-compose up` to see working service.
+from `docker-compose.yml`. Just build docker image (`docker build -t btc-metrics .`) 
+and run `docker-compose up` to see working service.
+
+```
+version: '3.4'
+volumes:
+    documents:
+services:
+    btc-metrics:
+        image: btc-metrics:latest
+        ports:
+            - 8080:5000
+        environment:
+            CRYPTO_CURRENCY: "BTC"
+            CURRENCY: "PLN"
+            INTERVAL: "10000"
+```
 
 # Configuration
 
