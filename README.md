@@ -27,8 +27,6 @@ and run `docker-compose up` to see working service.
 
 ```
 version: '3.4'
-volumes:
-    documents:
 services:
     btc-metrics:
         image: btc-metrics:latest
